@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 var score := 0
 
 func add_score(amount: int):
@@ -57,10 +59,16 @@ func _physics_process(delta: float) -> void:
 	# Smooth horizontal movement
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
+	if direction < 0:
+		animated_sprite_2d.rotate(129)
+	
 	if direction != 0:
+		animated_sprite_2d.play("Run")
+		
 		# Accelerate towards max speed
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
 	else:
+		animated_sprite_2d.play("Idle")
 		# Apply friction (different in air vs ground)
 		var deceleration = FRICTION if on_floor else AIR_RESISTANCE
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)

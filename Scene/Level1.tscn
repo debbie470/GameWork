@@ -309,17 +309,13 @@ sources/0 = SubResource("TileSetAtlasSource_d8c13")
 position = Vector2(169, 41)
 script = SubResource("GDScript_mfdv2")
 
-[node name="Player" parent="." unique_id=1149141194 groups=["player"] instance=ExtResource("7_na6ls")]
-position = Vector2(-129, -10)
-scale = Vector2(0.5, 0.5)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1039767748]
-position = Vector2(918, 178)
-scale = Vector2(2, 2)
-
 [node name="GameManager" type="Node" parent="." unique_id=2140097154]
 unique_name_in_owner = true
 script = ExtResource("9_3jhf0")
+
+[node name="Player" parent="." unique_id=2092029468 instance=ExtResource("7_na6ls")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1990821340]
 
 [node name="Finish" parent="." unique_id=273321648 instance=ExtResource("10_jl3d8")]
 position = Vector2(2232, 273)
