@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cjm0gt72anlpl"]
+
+[ext_resource type="Script" uid="uid://dkwoytdpfh7lt" path="res://scripts/finish.gd" id="1_bt3yw"]
+[ext_resource type="Texture2D" uid="uid://dgqi3jljen40k" path="res://Assets/Train Example/Train Example/assets/emotes/love.png" id="1_yp4eo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bt3yw"]
+size = Vector2(71, 59)
+
+[node name="Finish" type="Area2D" unique_id=1300924873]
+script = ExtResource("1_bt3yw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1922505847]
+texture_filter = 1
+position = Vector2(22.5, 20.5)
+scale = Vector2(3.8125, 3.5625)
+texture = ExtResource("1_yp4eo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1508312363]
+position = Vector2(25.5, 19.5)
+shape = SubResource("RectangleShape2D_bt3yw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

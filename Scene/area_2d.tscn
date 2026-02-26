@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://db3vef2ovhaha"]
+
+[ext_resource type="Script" path="res://area_2d.gd" id="1_dl81w"]
+[ext_resource type="Texture2D" uid="uid://cvnninndfccuo" path="res://Assets/Sprites/Ui/points-removebg-preview.png" id="2_5rgpn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0nl8"]
+radius = 20.615528
+
+[node name="Germ" type="Area2D" unique_id=1043888070]
+collision_layer = 2
+script = ExtResource("1_dl81w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=182304959]
+position = Vector2(472.19724, 247.32832)
+scale = Vector2(1.3601587, 1.3566674)
+texture = ExtResource("2_5rgpn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1061704391]
+position = Vector2(472, 246)
+shape = SubResource("CircleShape2D_c0nl8")
