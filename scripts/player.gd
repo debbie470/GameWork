@@ -60,8 +60,9 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
 	if direction < 0:
-		animated_sprite_2d.rotate(129)
-	
+		pass
+		# Flip rotation so hes looking left
+	 
 	if direction != 0:
 		animated_sprite_2d.play("Run")
 		

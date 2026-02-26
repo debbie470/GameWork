@@ -14,14 +14,12 @@
 [sub_resource type="GDScript" id="GDScript_mfdv2"]
 script/source = "extends Node2D
 
-func _on_germ_body_entered(body):
-	if body.is_in_group(\"player\"):
-		body.add_score(1)
-		queue_free()
-
-
-func _on_germ_7_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func _process(delta: float) -> void:
+	pass;
+	
+func _on_kill_zone_died() -> void:
+	for gem in get_tree().get_nodes_in_group(\"gem\"):
+		gem.show()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aiv1b"]
@@ -313,7 +311,7 @@ script = SubResource("GDScript_mfdv2")
 unique_name_in_owner = true
 script = ExtResource("9_3jhf0")
 
-[node name="Player" parent="." unique_id=2092029468 instance=ExtResource("7_na6ls")]
+[node name="Player" parent="." unique_id=2092029468 groups=["player"] instance=ExtResource("7_na6ls")]
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1990821340]
 
@@ -366,26 +364,26 @@ layer_0/tile_data = PackedInt32Array(131067, 131072, 1, 131068, 131072, 1, 13106
 
 [node name="Gems" type="Node2D" parent="." unique_id=1418716243]
 
-[node name="Germ" parent="Gems" unique_id=1491460578 instance=ExtResource("8_fjxbk")]
+[node name="Germ" parent="Gems" unique_id=1491460578 groups=["gem"] instance=ExtResource("8_fjxbk")]
 texture_filter = 1
 position = Vector2(322, 48)
 
-[node name="Germ2" parent="Gems" unique_id=1168536874 instance=ExtResource("8_fjxbk")]
+[node name="Germ2" parent="Gems" unique_id=1168536874 groups=["gem"] instance=ExtResource("8_fjxbk")]
 position = Vector2(717, -7)
 
-[node name="Germ3" parent="Gems" unique_id=1729079928 instance=ExtResource("8_fjxbk")]
+[node name="Germ3" parent="Gems" unique_id=1729079928 groups=["gem"] instance=ExtResource("8_fjxbk")]
 position = Vector2(2046, 192)
 
-[node name="Germ4" parent="Gems" unique_id=167714224 instance=ExtResource("8_fjxbk")]
+[node name="Germ4" parent="Gems" unique_id=167714224 groups=["gem"] instance=ExtResource("8_fjxbk")]
 position = Vector2(1118, -6)
 
-[node name="Germ5" parent="Gems" unique_id=1415126103 instance=ExtResource("8_fjxbk")]
+[node name="Germ5" parent="Gems" unique_id=1415126103 groups=["gem"] instance=ExtResource("8_fjxbk")]
 position = Vector2(1340, 52)
 
-[node name="Germ6" parent="Gems" unique_id=1909283501 instance=ExtResource("8_fjxbk")]
+[node name="Germ6" parent="Gems" unique_id=1909283501 groups=["gem"] instance=ExtResource("8_fjxbk")]
 position = Vector2(1790, 49)
 
-[node name="Germ7" parent="Gems" unique_id=1823716674 instance=ExtResource("8_fjxbk")]
+[node name="Germ7" parent="Gems" unique_id=1823716674 groups=["gem"] instance=ExtResource("8_fjxbk")]
 position = Vector2(1589, 49)
 
 [node name="Background" type="Node2D" parent="." unique_id=1719792613]
@@ -410,3 +408,5 @@ texture = ExtResource("10_d8c13")
 position = Vector2(1737.9999, 68)
 scale = Vector2(63.208332, 49.666664)
 texture = ExtResource("8_fpa3h")
+
+[connection signal="died" from="KillZone" to="." method="_on_kill_zone_died"]
