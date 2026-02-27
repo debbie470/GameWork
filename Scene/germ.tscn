@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c0ota7578snnv"]
+
+[ext_resource type="Script" uid="uid://cjjj2e4vx3s0q" path="res://scripts/germ.gd" id="1_wjhn7"]
+[ext_resource type="Texture2D" uid="uid://c2s830kp3f4ui" path="res://Assets/Sprites/Tileset/PixelPlatform/Tiles/tile_0067.png" id="2_igfgl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2s4c"]
+radius = 6.0
+
+[node name="Germ" type="Area2D" unique_id=1748274176]
+scale = Vector2(3, 3)
+collision_layer = 2
+script = ExtResource("1_wjhn7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=129778916]
+texture = ExtResource("2_igfgl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=563912658]
+shape = SubResource("CircleShape2D_o2s4c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

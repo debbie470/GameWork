@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="Game Project"
+run/main_scene="uid://doqss7icimaak"
+config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+AudioStreamPlayer2d="*uid://crg3gd8udbotj"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Game Project"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.44705883, 0.9647059, 0.9647059, 1)

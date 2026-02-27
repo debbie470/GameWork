@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://crg3gd8udbotj"]
+
+[ext_resource type="AudioStream" uid="uid://c04pufcvv8xqr" path="res://Assets/audio/music/ytmp3free.cc_funny-song-comedic-background-music-silly-chicken-youtubemp3free.org.mp3" id="1_d2dya"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=579096757]
+stream = ExtResource("1_d2dya")
+autoplay = true
